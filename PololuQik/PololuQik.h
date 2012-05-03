@@ -32,6 +32,21 @@
 #define QIK_2S12V10_GET_MOTOR_M0_SPEED   0x92
 #define QIK_2S12V10_GET_MOTOR_M1_SPEED   0x93
 
+// Configuration parameters
+
+#define QIK_CONFIG_DEVICE_ID                        0
+#define QIK_CONFIG_PWM_PARAMETER                    1
+#define QIK_CONFIG_SHUT_DOWN_MOTORS_ON_ERROR        2
+#define QIK_CONFIG_SERIAL_TIMEOUT                   3
+#define QIK_CONFIG_MOTOR_M0_ACCELERATION            4
+#define QIK_CONFIG_MOTOR_M1_ACCELERATION            5
+#define QIK_CONFIG_MOTOR_M0_BRAKE_DURATION          6
+#define QIK_CONFIG_MOTOR_M1_BRAKE_DURATION          7
+#define QIK_CONFIG_MOTOR_M0_CURRENT_LIMIT_DIV_2     8
+#define QIK_CONFIG_MOTOR_M1_CURRENT_LIMIT_DIV_2     9
+#define QIK_CONFIG_MOTOR_M0_CURRENT_LIMIT_RESPONSE 10
+#define QIK_CONFIG_MOTOR_M1_CURRENT_LIMIT_RESPONSE 11
+
 class PololuQik
 {
   public:
@@ -49,7 +64,7 @@ class PololuQik
     void setM1Speed(int16_t speed);
     void setSpeeds(int16_t m0Speed, int16_t m1Speed);
 
-  private:
+  protected:
     SoftwareSerial _serial;
     uint8_t _resetPin;
 };
@@ -71,10 +86,12 @@ class PololuQik2s12v10 : public PololuQik
 
     void setM0Brake(uint8_t brake);
     void setM1Brake(uint8_t brake);
-    void setBrakes(uint8_t m1Brake, uint8_t m2Brake);
+    void setBrakes(uint8_t m0Brake, uint8_t m1Brake);
 
     uint8_t getM0Current();
     uint8_t getM1Current();
+    uint16_t getM0CurrentMilliamps();
+    uint16_t getM1CurrentMilliamps();
     uint8_t getM0Speed();
     uint8_t getM1Speed();
 };
