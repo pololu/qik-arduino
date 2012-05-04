@@ -54,7 +54,7 @@ class PololuQik : public SoftwareSerial
 
     void init(long speed = 9600);
 
-    uint8_t getFirmwareVersion();
+    char getFirmwareVersion();
     uint8_t getErrors();
 
     uint8_t getConfigurationParameter(uint8_t parameter);

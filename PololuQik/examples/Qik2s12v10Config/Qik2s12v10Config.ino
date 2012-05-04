@@ -1,17 +1,16 @@
 /*
 Optionally writes, then reads, the configuration parameters on the qik 2s12v10.
 
-Please note that the memory used to store these parameters is only rated
-for approximately 100,000 erase/write cycles, so you should avoid
-repeatedly setting configuration parameters. It is intended that these
-parameters will initially be configured as desired and then only changed
-occasionally (they are saved in non-volatile memory, which means that
-once set, these parameters will retain their values even if the unit is
-powered off). For example, you can uncomment the appropriate calls to
-setConfigurationParameter() below and run this program once to
-initialize the parameters. Then, you can load your final program on your
-Arduino, which should assume that the parameters have already been set
-correctly.
+Please note that the memory used to store these parameters is only rated 
+for approximately 100,000 erase/write cycles, so you should avoid 
+repeatedly setting configuration parameters. It is intended that these 
+parameters will initially be configured as desired and then only changed 
+occasionally (they are saved in non-volatile memory, which means that 
+once set, these parameters will retain their values even if the unit is 
+powered off). For example, you can uncomment the appropriate calls to 
+setConfigShowResult() below and run this program once to initialize the 
+parameters. Then, you can load your final program on your Arduino, which 
+should assume that the parameters have already been set correctly. 
 
 Required connections between Arduino and qik 2s9v1:
 

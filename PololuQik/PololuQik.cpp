@@ -20,7 +20,7 @@ void PololuQik::init(long speed /* = 9600 */)
   write(0xAA); // allow qik to autodetect baud rate
 }
 
-uint8_t PololuQik::getFirmwareVersion()
+char PololuQik::getFirmwareVersion()
 {
   write(QIK_GET_FIRMWARE_VERSION);
   while (available() < 1);
