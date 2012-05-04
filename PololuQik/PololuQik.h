@@ -47,12 +47,12 @@
 #define QIK_CONFIG_MOTOR_M0_CURRENT_LIMIT_RESPONSE 10
 #define QIK_CONFIG_MOTOR_M1_CURRENT_LIMIT_RESPONSE 11
 
-class PololuQik
+class PololuQik : public SoftwareSerial
 {
   public:
     PololuQik(uint8_t receivePin, uint8_t transmitPin, uint8_t resetPin);
 
-    void init();
+    void init(long speed = 9600);
 
     uint8_t getFirmwareVersion();
     uint8_t getErrors();
@@ -65,7 +65,6 @@ class PololuQik
     void setSpeeds(int16_t m0Speed, int16_t m1Speed);
 
   protected:
-    SoftwareSerial _serial;
     uint8_t _resetPin;
 };
 
