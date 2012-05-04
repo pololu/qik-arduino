@@ -1,8 +1,8 @@
 #include "PololuQik.h"
 
-uint8_t cmd[5]; // serial command buffer
+byte cmd[5]; // serial command buffer
 
-PololuQik::PololuQik(uint8_t receivePin, uint8_t transmitPin, uint8_t resetPin) : SoftwareSerial(receivePin, transmitPin)
+PololuQik::PololuQik(unsigned char receivePin, unsigned char transmitPin, unsigned char resetPin) : SoftwareSerial(receivePin, transmitPin)
 {
   _resetPin = resetPin;
 }
@@ -27,14 +27,14 @@ char PololuQik::getFirmwareVersion()
   return read();
 }
 
-uint8_t PololuQik::getErrors()
+byte PololuQik::getErrors()
 {
   write(QIK_GET_ERROR_BYTE);
   while (available() < 1);
   return read();
 }
 
-uint8_t PololuQik::getConfigurationParameter(uint8_t parameter)
+byte PololuQik::getConfigurationParameter(byte parameter)
 {
   cmd[0] = QIK_GET_CONFIGURATION_PARAMETER;
   cmd[1] = parameter;
@@ -43,7 +43,7 @@ uint8_t PololuQik::getConfigurationParameter(uint8_t parameter)
   return read();
 }
 
-uint8_t PololuQik::setConfigurationParameter(uint8_t parameter, uint8_t value)
+byte PololuQik::setConfigurationParameter(byte parameter, byte value)
 {
   cmd[0] = QIK_SET_CONFIGURATION_PARAMETER;
   cmd[1] = parameter;
@@ -55,7 +55,7 @@ uint8_t PololuQik::setConfigurationParameter(uint8_t parameter, uint8_t value)
   return read();
 }
 
-void PololuQik::setM0Speed(int16_t speed)
+void PololuQik::setM0Speed(int speed)
 {
   boolean reverse = 0;
 
@@ -83,7 +83,7 @@ void PololuQik::setM0Speed(int16_t speed)
   write(cmd, 2);
 }
 
-void PololuQik::setM1Speed(int16_t speed)
+void PololuQik::setM1Speed(int speed)
 {
   boolean reverse = 0;
 
@@ -111,7 +111,7 @@ void PololuQik::setM1Speed(int16_t speed)
   write(cmd, 2);
 }
 
-void PololuQik::setSpeeds(int16_t m0Speed, int16_t m1Speed)
+void PololuQik::setSpeeds(int m0Speed, int m1Speed)
 {
   setM0Speed(m0Speed);
   setM1Speed(m1Speed);
@@ -137,7 +137,7 @@ void PololuQik2s9v1::setCoasts()
 
 // 2s12v10
 
-void PololuQik2s12v10::setM0Brake(uint8_t brake)
+void PololuQik2s12v10::setM0Brake(unsigned char brake)
 {
   if (brake > 127)
     brake = 127;
@@ -147,7 +147,7 @@ void PololuQik2s12v10::setM0Brake(uint8_t brake)
   write(cmd, 2);
 }
 
-void PololuQik2s12v10::setM1Brake(uint8_t brake)
+void PololuQik2s12v10::setM1Brake(unsigned char brake)
 {
   if (brake > 127)
     brake = 127;
@@ -157,44 +157,44 @@ void PololuQik2s12v10::setM1Brake(uint8_t brake)
   write(cmd, 2);
 }
 
-void PololuQik2s12v10::setBrakes(uint8_t m0Brake, uint8_t m1Brake)
+void PololuQik2s12v10::setBrakes(unsigned char m0Brake, unsigned char m1Brake)
 {
   setM0Brake(m0Brake);
   setM1Brake(m1Brake);
 }
 
-uint8_t PololuQik2s12v10::getM0Current()
+unsigned char PololuQik2s12v10::getM0Current()
 {
   write(QIK_2S12V10_GET_MOTOR_M0_CURRENT);
   while (available() < 1);
   return read();
 }
 
-uint8_t PololuQik2s12v10::getM1Current()
+unsigned char PololuQik2s12v10::getM1Current()
 {
   write(QIK_2S12V10_GET_MOTOR_M1_CURRENT);
   while (available() < 1);
   return read();
 }
 
-uint16_t PololuQik2s12v10::getM0CurrentMilliamps()
+unsigned int PololuQik2s12v10::getM0CurrentMilliamps()
 {
   return getM0Current() * 150;
 }
 
-uint16_t PololuQik2s12v10::getM1CurrentMilliamps()
+unsigned int PololuQik2s12v10::getM1CurrentMilliamps()
 {
   return getM1Current() * 150;
 }
 
-uint8_t PololuQik2s12v10::getM0Speed()
+unsigned char PololuQik2s12v10::getM0Speed()
 {
   write(QIK_2S12V10_GET_MOTOR_M0_SPEED);
   while (available() < 1);
   return read();
 }
 
-uint8_t PololuQik2s12v10::getM1Speed()
+unsigned char PololuQik2s12v10::getM1Speed()
 {
   write(QIK_2S12V10_GET_MOTOR_M1_SPEED);
   while (available() < 1);

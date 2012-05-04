@@ -50,28 +50,28 @@
 class PololuQik : public SoftwareSerial
 {
   public:
-    PololuQik(uint8_t receivePin, uint8_t transmitPin, uint8_t resetPin);
+    PololuQik(unsigned char receivePin, unsigned char transmitPin, unsigned char resetPin);
 
     void init(long speed = 9600);
 
     char getFirmwareVersion();
-    uint8_t getErrors();
+    byte getErrors();
 
-    uint8_t getConfigurationParameter(uint8_t parameter);
-    uint8_t setConfigurationParameter(uint8_t parameter, uint8_t value);
+    byte getConfigurationParameter(byte parameter);
+    byte setConfigurationParameter(byte parameter, byte value);
 
-    void setM0Speed(int16_t speed);
-    void setM1Speed(int16_t speed);
-    void setSpeeds(int16_t m0Speed, int16_t m1Speed);
+    void setM0Speed(int speed);
+    void setM1Speed(int speed);
+    void setSpeeds(int m0Speed, int m1Speed);
 
   protected:
-    uint8_t _resetPin;
+    unsigned char _resetPin;
 };
 
 class PololuQik2s9v1 : public PololuQik
 {
   public:
-    PololuQik2s9v1(uint8_t receivePin, uint8_t transmitPin, uint8_t resetPin) : PololuQik(receivePin, transmitPin, resetPin) {}
+    PololuQik2s9v1(unsigned char receivePin, unsigned char transmitPin, unsigned char resetPin) : PololuQik(receivePin, transmitPin, resetPin) {}
 
     void setM0Coast();
     void setM1Coast();
@@ -81,18 +81,18 @@ class PololuQik2s9v1 : public PololuQik
 class PololuQik2s12v10 : public PololuQik
 {
   public:
-    PololuQik2s12v10(uint8_t receivePin, uint8_t transmitPin, uint8_t resetPin) : PololuQik(receivePin, transmitPin, resetPin) {}
+    PololuQik2s12v10(unsigned char receivePin, unsigned char transmitPin, unsigned char resetPin) : PololuQik(receivePin, transmitPin, resetPin) {}
 
-    void setM0Brake(uint8_t brake);
-    void setM1Brake(uint8_t brake);
-    void setBrakes(uint8_t m0Brake, uint8_t m1Brake);
+    void setM0Brake(unsigned char brake);
+    void setM1Brake(unsigned char brake);
+    void setBrakes(unsigned char m0Brake, unsigned char m1Brake);
 
-    uint8_t getM0Current();
-    uint8_t getM1Current();
-    uint16_t getM0CurrentMilliamps();
-    uint16_t getM1CurrentMilliamps();
-    uint8_t getM0Speed();
-    uint8_t getM1Speed();
+    unsigned char getM0Current();
+    unsigned char getM1Current();
+    unsigned int getM0CurrentMilliamps();
+    unsigned int getM1CurrentMilliamps();
+    unsigned char getM0Speed();
+    unsigned char getM1Speed();
 };
 
 #endif

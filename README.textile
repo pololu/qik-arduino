@@ -61,19 +61,19 @@ h2. Library Reference
 
 h3. PololuQik
 
-- @PololuQik(uint8_t receivePin, uint8_t transmitPin, uint8_t resetPin)@ := Constructor; sets pins as specified. Note that the receive and transmit pins are specified from the perspective of the *Arduino* (so the receive pin should be connected to the TX pin on the qik and the transmit pin should be connected to the RX pin on the qik).
+- @PololuQik(unsigned char receivePin, unsigned char transmitPin, unsigned char resetPin)@ := Constructor; sets pins as specified. Note that the receive and transmit pins are specified from the perspective of the *Arduino* (so the receive pin should be connected to the TX pin on the qik and the transmit pin should be connected to the RX pin on the qik).
 
 - @void init(long speed = 9600)@ := Resets the qik and initializes serial communication with it at the specified baud rate (defaults to 9600 bps if unspecified).
 
 - @char getFirmwareVersion()@ := Returns an ASCII byte that represents the version of the firmware running on the qik.
-- @uint8_t getErrors()@ := Returns a byte that indicates any errors that have been detected since the errors were last read. See the user's guides for the meaning of each bit.
+- @byte getErrors()@ := Returns a byte that indicates any errors that have been detected since the errors were last read. See the user's guides for the meaning of each bit.
 
-- @uint8_t getConfigurationParameter(uint8_t parameter)@ := Returns the current value of the specified configuration parameter.
-- @uint8_t setConfigurationParameter(uint8_t parameter, uint8_t value)@ := Sets the specified configuration parameter to the specified value.
+- @byte getConfigurationParameter(byte parameter)@ := Returns the current value of the specified configuration parameter.
+- @byte setConfigurationParameter(byte parameter, byte value)@ := Sets the specified configuration parameter to the specified value.
 
-- @void setM0Speed(int16_t speed)@ := Sets speed and direction for motor M0. @speed@ should be between -127 and 127 in 7-bit mode or -255 and 255 in 8-bit mode. Positive values correspond to motor current flowing from the + pin to the - pin. Negative values correspond to motor current flowing from the - pin to the + pin.
-- @void setM1Speed(int16_t speed)@ := Sets speed and direction for motor M1.
-- @void setSpeeds(int16_t m0Speed, int16_t m1Speed)@ := Sets speed and direction for both motors. 
+- @void setM0Speed(int speed)@ := Sets speed and direction for motor M0. @speed@ should be between -127 and 127 in 7-bit mode or -255 and 255 in 8-bit mode. Positive values correspond to motor current flowing from the + pin to the - pin. Negative values correspond to motor current flowing from the - pin to the + pin.
+- @void setM1Speed(int speed)@ := Sets speed and direction for motor M1.
+- @void setSpeeds(int m0Speed, int m1Speed)@ := Sets speed and direction for both motors. 
 
 h3. PololuQik2s9v1
 
@@ -83,16 +83,16 @@ h3. PololuQik2s9v1
 
 h3. PololuQik2s12v10
 
-- @void setM0Brake(uint8_t brake)@ := Sets brake for motor M0. @brake@ should be between 0 and 127. 0 corresponds to full coast, and 127 corresponds to full brake.
-- @void setM1Brake(uint8_t brake)@ := Sets brake for motor M1.
-- @void setBrakes(uint8_t m0Brake, uint8_t m1Brake)@ := Sets brake for both motors.
+- @void setM0Brake(unsigned char brake)@ := Sets brake for motor M0. @brake@ should be between 0 and 127. 0 corresponds to full coast, and 127 corresponds to full brake.
+- @void setM1Brake(unsigned char brake)@ := Sets brake for motor M1.
+- @void setBrakes(unsigned char m0Brake, unsigned char m1Brake)@ := Sets brake for both motors.
 
-- @uint8_t getM0Current()@ := Returns raw current reading from motor M0.
-- @uint8_t getM1Current()@ := Returns raw current reading from motor M1.
-- @uint16_t getM0CurrentMilliamps()@ := Returns current reading from motor M0 in milliamps.
-- @uint16_t getM1CurrentMilliamps()@ := Returns current reading from motor M1 in milliamps.
-- @uint8_t getM0Speed()@ := Returns the present target motor speed for motor M0.
-- @uint8_t getM1Speed()@ := Returns the present target motor speed for motor M1. 
+- @unsigned char getM0Current()@ := Returns raw current reading from motor M0.
+- @unsigned char getM1Current()@ := Returns raw current reading from motor M1.
+- @unsigned int getM0CurrentMilliamps()@ := Returns current reading from motor M0 in milliamps.
+- @unsigned int getM1CurrentMilliamps()@ := Returns current reading from motor M1 in milliamps.
+- @unsigned char getM0Speed()@ := Returns the present target motor speed for motor M0.
+- @unsigned char getM1Speed()@ := Returns the present target motor speed for motor M1. 
 
 h2. Version History
 
