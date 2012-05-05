@@ -18,7 +18,9 @@ h3. Hardware
 
 The qik controllers can be purchased on Pololu's website using the links above. See the user's guides for the "2s9v1":http://www.pololu.com/docs/0J25 and "2s12v10":http://www.pololu.com/docs/0J29 for more details.
 
-The example programs require the following connections to be made with wires between the Arduino and the qik:
+The example programs require the appropriate set of connections to be made with wires between the Arduino and the qik:
+
+h4. qik 2s9v1
 
 pre.       Arduino    qik 2s9v1
            5V -> VCC
@@ -26,6 +28,8 @@ pre.       Arduino    qik 2s9v1
 Digital Pin 2 -> TX
 Digital Pin 3 -> RX
 Digital Pin 4 -> RESET
+
+h4. qik 2s12v10
 
 pre.       Arduino    qik 2s12v10
           GND -> GND
@@ -39,11 +43,11 @@ h2. Example Programs
 
 Open an example code sketch by selecting File->Examples->PololuQik->example_name.
 
-h3. Qik2s9v1Demo/Qik2s12v10Demo
+h3. Qik2s9v1Demo and Qik2s12v10Demo
 
 Each of these programs ramps motor 1 from stopped to full speed forward, ramps down to full speed reverse, and back to stopped. Then, it does the same with the other motor. For the qik 2s12v10, both motors' current readings are sent over serial and can be seen with the serial monitor.
 
-h3. Qik2s9v1Config/Qik2s12v10Config
+h3. Qik2s9v1Config and Qik2s12v10Config
 
 Each of these programs reads and displays the configuration parameters of the qik. They can also be used to change the configuration parameters by uncommenting and editing the appropriate calls to @setConfigShowResult()@.
 
@@ -61,7 +65,7 @@ h2. Library Reference
 
 h3. PololuQik
 
-- @PololuQik(unsigned char receivePin, unsigned char transmitPin, unsigned char resetPin)@ := Constructor; sets pins as specified. Note that the receive and transmit pins are specified from the perspective of the *Arduino* (so the receive pin should be connected to the TX pin on the qik and the transmit pin should be connected to the RX pin on the qik).
+- @PololuQik(unsigned char receivePin, unsigned char transmitPin, unsigned char resetPin)@ := Constructor; sets pins as specified. The receive and transmit pins are specified from the perspective of the *Arduino* (so the receive pin should be connected to the TX pin on the qik and the transmit pin should be connected to the RX pin on the qik).
 
 - @void init(long speed = 9600)@ := Resets the qik and initializes serial communication with it at the specified baud rate (defaults to 9600 bps if unspecified).
 
