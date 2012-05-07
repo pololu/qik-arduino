@@ -61,7 +61,7 @@ This library defines a @PololuQik@ base class that implements commands common to
 
 The PololuQik class is itself derived from the @SoftwareSerial@ class, so you can use SoftwareSerial member functions (like @write()@ and @listen()@) for direct access to the serial interface used to communicate with the qik.
  
-This library uses the compact protocol, not the Pololu protocol, so it cannot be used to control multiple qiks daisy-chained together on the same serial line.
+The library does not implement any serial communication timeouts, so your sketch will hang if the qik is not connected properly or not responding as expected. It uses the compact protocol, not the Pololu protocol, so it cannot be used to control multiple qiks daisy-chained together on the same serial line.
 
 h2. Library Reference
 
