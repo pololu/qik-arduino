@@ -22,20 +22,20 @@ The example programs require the appropriate set of connections to be made with 
 
 h4. qik 2s9v1
 
-pre.       Arduino    qik 2s9v1
-           5V -> VCC
-          GND -> GND
-Digital Pin 2 -> TX
-Digital Pin 3 -> RX
-Digital Pin 4 -> RESET
+pre.       Arduino   qik 2s9v1
+           5V - VCC
+          GND - GND
+Digital Pin 2 - TX
+Digital Pin 3 - RX
+Digital Pin 4 - RESET
 
 h4. qik 2s12v10
 
-pre.       Arduino    qik 2s12v10
-          GND -> GND
-Digital Pin 2 -> TX
-Digital Pin 3 -> RX
-Digital Pin 4 -> RESET
+pre.       Arduino   qik 2s12v10
+          GND - GND
+Digital Pin 2 - TX
+Digital Pin 3 - RX
+Digital Pin 4 - RESET
 
 *Do not* connect the 5V output on the Arduino to the 5V output on the qik 2s12v10!
 
