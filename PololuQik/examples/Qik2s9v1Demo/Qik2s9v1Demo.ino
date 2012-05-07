@@ -1,12 +1,13 @@
 /*
 Required connections between Arduino and qik 2s9v1:
 
-      Arduino    qik 2s9v1
-           5V -> VCC
-          GND -> GND
-Digital Pin 2 -> TX
-Digital Pin 3 -> RX
-Digital Pin 4 -> RESET
+      Arduino   qik 2s9v1
+-------------------------
+           5V - VCC
+          GND - GND
+Digital Pin 2 - TX
+Digital Pin 3 - RX
+Digital Pin 4 - RESET
 */
 
 #include <SoftwareSerial.h>

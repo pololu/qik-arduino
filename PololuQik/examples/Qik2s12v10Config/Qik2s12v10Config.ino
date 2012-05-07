@@ -14,11 +14,12 @@ should assume that the parameters have already been set correctly.
 
 Required connections between Arduino and qik 2s9v1:
 
-      Arduino    qik 2s12v10
-          GND -> GND
-Digital Pin 2 -> TX
-Digital Pin 3 -> RX
-Digital Pin 4 -> RESET
+      Arduino   qik 2s12v10
+---------------------------
+          GND - GND
+Digital Pin 2 - TX
+Digital Pin 3 - RX
+Digital Pin 4 - RESET
 
 DO NOT connect the 5V output on the Arduino to the 5V output on the qik 2s12v10!
 */

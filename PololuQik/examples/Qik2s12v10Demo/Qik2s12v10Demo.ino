@@ -1,11 +1,12 @@
 /*
 Required connections between Arduino and qik 2s12v10:
 
-      Arduino    qik 2s12v10
-          GND -> GND
-Digital Pin 2 -> TX
-Digital Pin 3 -> RX
-Digital Pin 4 -> RESET
+      Arduino   qik 2s12v10
+---------------------------
+          GND - GND
+Digital Pin 2 - TX
+Digital Pin 3 - RX
+Digital Pin 4 - RESET
 
 DO NOT connect the 5V output on the Arduino to the 5V output on the qik 2s12v10!
 */
@@ -32,7 +33,7 @@ void loop()
   for (int i = 0; i <= 127; i++)
   {
     qik.setM0Speed(i);
-    if (abs(i%64) == 32)
+    if (abs(i) % 64 == 32)
     {
       Serial.print("M0 current: ");
       Serial.println(qik.getM0CurrentMilliamps());
@@ -43,7 +44,7 @@ void loop()
   for (int i = 127; i >= -127; i--)
   {
     qik.setM0Speed(i);
-    if (abs(i%64) == 32)
+    if (abs(i) % 64 == 32)
     {
       Serial.print("M0 current: ");
       Serial.println(qik.getM0CurrentMilliamps());
@@ -54,7 +55,7 @@ void loop()
   for (int i = -127; i <= 0; i++)
   {
     qik.setM0Speed(i);
-    if (abs(i%64) == 32)
+    if (abs(i) % 64 == 32)
     {
       Serial.print("M0 current: ");
       Serial.println(qik.getM0CurrentMilliamps());
@@ -65,7 +66,7 @@ void loop()
   for (int i = 0; i <= 127; i++)
   {
     qik.setM1Speed(i);
-    if (abs(i%64) == 32)
+    if (abs(i) % 64 == 32)
     {
       Serial.print("M1 current: ");
       Serial.println(qik.getM1CurrentMilliamps());
@@ -76,7 +77,7 @@ void loop()
   for (int i = 127; i >= -127; i--)
   {
     qik.setM1Speed(i);
-    if (abs(i%64) == 32)
+    if (abs(i) % 64 == 32)
     {
       Serial.print("M1 current: ");
       Serial.println(qik.getM1CurrentMilliamps());
@@ -87,7 +88,7 @@ void loop()
   for (int i = -127; i <= 0; i++)
   {
     qik.setM1Speed(i);
-    if (abs(i%64) == 32)
+    if (abs(i) % 64 == 32)
     {
       Serial.print("M1 current: ");
       Serial.println(qik.getM1CurrentMilliamps());
