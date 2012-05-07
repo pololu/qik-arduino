@@ -85,7 +85,7 @@ h3. PololuQik2s9v1
 
 - @void setM0Coast()@ := Sets motor M0 to coast.
 - @void setM1Coast()@ := Sets motor M1 to coast.
-- @void setBrakes(int m1Brake, int m2Brake)@ := Sets both motors to coast.
+- @void setCoasts()@ := Sets both motors to coast.
 
 h3. PololuQik2s12v10
 
