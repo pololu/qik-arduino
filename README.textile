@@ -1,7 +1,7 @@
 h1. Arduino library for the Pololu qik dual serial motor controllers
 
-Version: 1.0.0
-Release Date: 2011-05-07
+Version: 1.1.0
+Release Date: 2013-05-22
 "www.pololu.com":http://www.pololu.com/
 
 h2. Summary
@@ -40,6 +40,8 @@ Digital Pin 3 - RX
 Digital Pin 4 - RESET
 
 *Do not* connect the 5V output on the Arduino to the 5V output on the qik 2s12v10!
+
+*Note:* If you are using an Arduino variant that does not use an ATmega328P or ATmega168 (such as a Mega or Leonardo), the default pin assignments will not work for you and will need to be changed. Please see the Arduino "SoftwareSerial Library reference":http://arduino.cc/en/Reference/SoftwareSerial for more information.
 
 h2. Example Programs
 
@@ -102,4 +104,5 @@ h3. PololuQik2s12v10
 
 h2. Version History
 
+* 1.1.0 (2013-05-22): Added calls to @SoftwareSerial::listen()@ for better behavior when using multiple @PololuQik@ instances.
 * 1.0.0 (2012-05-07): Original release.
