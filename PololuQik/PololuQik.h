@@ -2,7 +2,7 @@
 #define PololuQik_h
 
 #include <Arduino.h>
-#include "../SoftwareSerial/SoftwareSerial.h"
+#include <SoftwareSerial.h>
 
 // Commands
 
