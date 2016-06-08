@@ -1,7 +1,7 @@
 h1. Arduino library for the Pololu qik dual serial motor controllers
 
-Version: 1.1.0
-Release Date: 2013-05-22
+Version: 1.1.1
+Release Date: 2016-06-08
 "www.pololu.com":http://www.pololu.com/
 
 h2. Summary
@@ -103,6 +103,6 @@ h3. PololuQik2s12v10
 - @unsigned char getM1Speed()@ := Returns the present target motor speed for motor M1. 
 
 h2. Version History
-
+* 1.1.1 (2016-06-08): Made SoftwareSerial include to be a system header include (thanks Dippyskoodlez).
 * 1.1.0 (2013-05-22): Added calls to @SoftwareSerial::listen()@ for better behavior when using multiple @PololuQik@ instances.
 * 1.0.0 (2012-05-07): Original release.
