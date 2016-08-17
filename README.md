@@ -30,7 +30,7 @@ made with wires between the Arduino and the qik:
 
 #### qik 2s9v1
 
-    Arduino        - qik 2s9v1
+    Arduino       - qik 2s9v1
     --------------------------
     5V            - VCC
     GND           - GND
@@ -41,16 +41,16 @@ made with wires between the Arduino and the qik:
 #### qik 2s12v10
 
 
-    Arduino        - qik 2s12v10
+    Arduino       - qik 2s12v10
     --------------------------
     GND           - GND
     Digital Pin 2 - TX
     Digital Pin 3 - RX
     Digital Pin 4 - RESET
 
-*Do not* connect the 5V output on the Arduino to the 5V output on the qik 2s12v10!
+**Do not** connect the 5V output on the Arduino to the 5V output on the qik 2s12v10!
 
-*Note:* If you are using an Arduino variant that does not use an
+**Note:** If you are using an Arduino variant that does not use an
 ATmega328P or ATmega168 (such as a Mega or Leonardo), the default pin
 assignments will not work for you and will need to be changed. Please
 see the Arduino
@@ -141,9 +141,9 @@ together on the same serial line.
 - `PololuQik(unsigned char receivePin, unsigned char transmitPin,
   unsigned char resetPin)` <br> Constructor; sets pins as specified.
   The receive and transmit pins are specified from the perspective of
-  the *Arduino* (so the receive pin should be connected to the TX pin
-  on the qik and the transmit pin should be connected to the RX pin on
-  the qik).
+  the **Arduino** (so the receive pin should be connected to the TX
+  pin on the qik and the transmit pin should be connected to the RX
+  pin on the qik).
 - `void init(long speed = 9600)` <br> Resets the qik and initializes
    serial communication with it at the specified baud rate (defaults
    to 9600 bps if unspecified).
@@ -158,7 +158,7 @@ together on the same serial line.
   the specified configuration parameter to the specified value.
 
 - `void setM0Speed(int speed)` <br> Sets speed and direction for motor
-  M0. @speed@ should be between -127 and 127 in 7-bit mode or -255 and
+  M0. `speed` should be between -127 and 127 in 7-bit mode or -255 and
   255 in 8-bit mode.  Positive values correspond to motor current
   flowing from the + pin to the - pin. Negative values correspond to
   motor current flowing from the - pin to the + pin.
@@ -176,7 +176,7 @@ together on the same serial line.
 #### PololuQik2s12v10
 
 - `void setM0Brake(unsigned char brake)` <br> Sets brake for motor
-  M0. @brake@ should be between 0 and 127. 0 corresponds to full
+  M0. `brake` should be between 0 and 127. 0 corresponds to full
   coast, and 127 corresponds to full brake.
 - `void setM1Brake(unsigned char brake)` <br> Sets brake for motor
   M1.
@@ -198,5 +198,5 @@ together on the same serial line.
 ## Version history
 * 2.0.0 (2016-08-16): Updated library to work with the Arduino Library Manager.
 * 1.1.1 (2016-06-08): Made SoftwareSerial include to be a system header include (thanks Dippyskoodlez).
-* 1.1.0 (2013-05-22): Added calls to @SoftwareSerial::listen()@ for better behavior when using multiple @PololuQik@ instances.
+* 1.1.0 (2013-05-22): Added calls to `SoftwareSerial::listen()` for better behavior when using multiple `PololuQik` instances.
 * 1.0.0 (2012-05-07): Original release.
