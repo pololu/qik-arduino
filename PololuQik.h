@@ -2,7 +2,9 @@
 #define PololuQik_h
 
 #include <Arduino.h>
-#include <SoftwareSerial.h>
+//#include <SoftwareSerial.h>
+#include <HardwareSerial.h>
+
 
 // Commands
 
@@ -47,7 +49,7 @@
 #define QIK_CONFIG_MOTOR_M0_CURRENT_LIMIT_RESPONSE 10
 #define QIK_CONFIG_MOTOR_M1_CURRENT_LIMIT_RESPONSE 11
 
-class PololuQik : public SoftwareSerial
+class PololuQik : public HardwareSerial
 {
   public:
     PololuQik(unsigned char receivePin, unsigned char transmitPin, unsigned char resetPin);
