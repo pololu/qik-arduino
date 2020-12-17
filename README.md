@@ -2,7 +2,6 @@
 
 Version: 2.0.0<br>
 Release date: 2016-08-16<br>
-[![Build Status](https://travis-ci.org/pololu/qik-arduino.svg?branch=master)](https://travis-ci.org/pololu/qik-arduino)<br>
 [www.pololu.com](https://www.pololu.com/)
 
 ## Summary
