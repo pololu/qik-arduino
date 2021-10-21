@@ -95,4 +95,6 @@ class PololuQik2s12v10 : public PololuQik
     unsigned char getM1Speed();
 };
 
+using PololuQik2s15v9 = PololuQik2s12v10;
+
 #endif

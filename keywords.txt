@@ -1,6 +1,7 @@
 PololuQik	KEYWORD1
 PololuQik2s9v1	KEYWORD1
 PololuQik2s12v10	KEYWORD1
+PololuQik2s15v9	KEYWORD1
 init	KEYWORD2
 getFirmwareVersion	KEYWORD2
 getErrors	KEYWORD2

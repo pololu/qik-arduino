@@ -9,15 +9,15 @@ PololuQik::PololuQik(unsigned char receivePin, unsigned char transmitPin, unsign
 
 void PololuQik::init(long speed /* = 9600 */)
 {
-  // reset the qik
+  // reset the Qik
   digitalWrite(_resetPin, LOW);
   pinMode(_resetPin, OUTPUT); // drive low
   delay(1);
-  pinMode(_resetPin, INPUT); // return to high-impedance input (reset is internally pulled up on qik)
+  pinMode(_resetPin, INPUT); // return to high-impedance input (reset is internally pulled up on Qik)
   delay(10);
 
   begin(speed);
-  write(0xAA); // allow qik to autodetect baud rate
+  write(0xAA); // allow Qik to autodetect baud rate
 }
 
 char PololuQik::getFirmwareVersion()

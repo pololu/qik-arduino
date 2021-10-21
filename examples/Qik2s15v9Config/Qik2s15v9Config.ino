@@ -1,5 +1,5 @@
 /*
-Optionally writes, then reads, the configuration parameters on the Qik 2s12v10.
+Optionally writes, then reads, the configuration parameters on the Qik 2s15v9.
 
 Please note that the memory used to store these parameters is only rated
 for approximately 100,000 erase/write cycles, so you should avoid
@@ -12,16 +12,16 @@ setConfigShowResult() below and run this program once to initialize the
 parameters. Then, you can load your final program on your Arduino, which
 should assume that the parameters have already been set correctly.
 
-Required connections between Arduino and Qik 2s12v10:
+Required connections between Arduino and Qik 2s15v9:
 
-      Arduino   Qik 2s12v10
+      Arduino   Qik 2s15v9
 ---------------------------
           GND - GND
 Digital Pin 2 - TX
 Digital Pin 3 - RX
 Digital Pin 4 - RESET
 
-DO NOT connect the 5V output on the Arduino to the 5V output on the Qik 2s12v10!
+DO NOT connect the 5V output on the Arduino to the 5V output on the Qik 2s15v9!
 */
 
 #include <SoftwareSerial.h>
@@ -42,7 +42,7 @@ const char* param_names[] = {
   "Motor M1 Current-Limit Response"
 };
 
-PololuQik2s12v10 qik(2, 3, 4);
+PololuQik2s15v9 qik(2, 3, 4);
 
 void setConfigShowResult(uint8_t parameter, uint8_t value)
 {
@@ -73,7 +73,7 @@ void setConfigShowResult(uint8_t parameter, uint8_t value)
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("Qik 2s12v10 dual serial motor controller");
+  Serial.println("Qik 2s15v9 dual serial motor controller");
   Serial.println();
 
   qik.init();

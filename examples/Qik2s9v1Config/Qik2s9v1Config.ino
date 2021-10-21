@@ -1,20 +1,20 @@
 /*
-Optionally writes, then reads, the configuration parameters on the qik 2s9v1.
+Optionally writes, then reads, the configuration parameters on the Qik 2s9v1.
 
-Please note that the memory used to store these parameters is only rated 
-for approximately 100,000 erase/write cycles, so you should avoid 
-repeatedly setting configuration parameters. It is intended that these 
-parameters will initially be configured as desired and then only changed 
-occasionally (they are saved in non-volatile memory, which means that 
-once set, these parameters will retain their values even if the unit is 
-powered off). For example, you can uncomment the appropriate calls to 
-setConfigShowResult() below and run this program once to initialize the 
-parameters. Then, you can load your final program on your Arduino, which 
-should assume that the parameters have already been set correctly. 
+Please note that the memory used to store these parameters is only rated
+for approximately 100,000 erase/write cycles, so you should avoid
+repeatedly setting configuration parameters. It is intended that these
+parameters will initially be configured as desired and then only changed
+occasionally (they are saved in non-volatile memory, which means that
+once set, these parameters will retain their values even if the unit is
+powered off). For example, you can uncomment the appropriate calls to
+setConfigShowResult() below and run this program once to initialize the
+parameters. Then, you can load your final program on your Arduino, which
+should assume that the parameters have already been set correctly.
 
-Required connections between Arduino and qik 2s9v1:
+Required connections between Arduino and Qik 2s9v1:
 
-      Arduino   qik 2s9v1
+      Arduino   Qik 2s9v1
 -------------------------
            5V - VCC
           GND - GND
@@ -26,7 +26,7 @@ Digital Pin 4 - RESET
 #include <SoftwareSerial.h>
 #include <PololuQik.h>
 
-char* param_names[] = {
+const char* param_names[] = {
   "Device ID",
   "PWM Parameter",
   "Shut Down Motors on Error",
@@ -64,14 +64,14 @@ void setConfigShowResult(uint8_t parameter, uint8_t value)
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("qik 2s9v1 dual serial motor controller");
+  Serial.println("Qik 2s9v1 dual serial motor controller");
   Serial.println();
 
   qik.init();
 
   // Write configuration parameters
   // Uncomment and edit the line for any parameter you want to change.
-  
+
   //setConfigShowResult(QIK_CONFIG_DEVICE_ID, 9);
   //setConfigShowResult(QIK_CONFIG_PWM_PARAMETER, 0);
   //setConfigShowResult(QIK_CONFIG_SHUT_DOWN_MOTORS_ON_ERROR, 1);

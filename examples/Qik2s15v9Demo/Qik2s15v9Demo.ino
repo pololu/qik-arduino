@@ -1,25 +1,25 @@
 /*
-Required connections between Arduino and Qik 2s12v10:
+Required connections between Arduino and Qik 2s15v9:
 
-      Arduino   Qik 2s12v10
+      Arduino   Qik 2s15v9
 ---------------------------
           GND - GND
 Digital Pin 2 - TX
 Digital Pin 3 - RX
 Digital Pin 4 - RESET
 
-DO NOT connect the 5V output on the Arduino to the 5V output on the Qik 2s12v10!
+DO NOT connect the 5V output on the Arduino to the 5V output on the Qik 2s15v9!
 */
 
 #include <SoftwareSerial.h>
 #include <PololuQik.h>
 
-PololuQik2s12v10 qik(2, 3, 4);
+PololuQik2s15v9 qik(2, 3, 4);
 
 void setup()
 {
   Serial.begin(115200);
-  Serial.println("Qik 2s12v10 dual serial motor controller");
+  Serial.println("Qik 2s15v9 dual serial motor controller");
 
   qik.init();
 
